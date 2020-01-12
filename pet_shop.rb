@@ -97,39 +97,22 @@ end
 
 
 
-# def sell_pet_to_customer(pet_shop_hash, pets_array, customers_array)
-#   if find_pet_by_name(pet_shop_hash, pets_array) != nil
-#
-#   add_pet_to_customer(customers_array, pets_array)
-#   return customer_pet_count(customers_array)
-#
-#   increase_pets_sold(pet_shop_hash, 1)
-#   return pets_sold(pet_shop_hash)
-#
-#   remove_customer_cash(customers_array, 900)
-#   return customer_cash(customers_array)
-#
-#   add_or_remove_cash(pet_shop_hash, 900)
-#   return total_cash(pet_shop_hash)
-#   end
-# end
-
-
 def sell_pet_to_customer(pet_shop_hash, pets_array, customers_array)
 
-  if find_pet_by_name(pet_shop_hash, pets_array) != nil
+if (pets_array != nil) && (customer_can_afford_pet(customers_array, pets_array) == true)
 
     add_pet_to_customer(customers_array, pets_array)
-    customer_pet_count(customers_array)
+    return customer_pet_count(customers_array)
 
     increase_pets_sold(pet_shop_hash, 1)
-    pets_sold(pet_shop_hash)
+    return pets_sold(pet_shop_hash)
 
     remove_customer_cash(customers_array, 900)
-    customer_cash(customers_array)
+    return customer_cash(customers_array)
 
     add_or_remove_cash(pet_shop_hash, 900)
-    total_cash(pet_shop_hash)
+    return total_cash(pet_shop_hash)
+
   end
   return customer_pet_count(customers_array)
   return pets_sold(pet_shop_hash)
