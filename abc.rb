@@ -1,3 +1,74 @@
+@customers = [
+  {
+    name: "Alice",
+    pets: [],
+    cash: 1000
+  },
+  {
+    name: "Bob",
+    pets: [],
+    cash: 50
+  },
+  {
+    name: "Jack",
+    pets: [],
+    cash: 100
+  }
+]
+
+@new_pet = {
+  name: "Bors the Younger",
+  pet_type: :cat,
+  breed: "Cornish Rex",
+  price: 100
+}
+
+@pet_shop = {
+  pets: [
+    {
+      name: "Sir Percy",
+      pet_type: :cat,
+      breed: "British Shorthair",
+      price: 500
+    },
+    {
+      name: "King Bagdemagus",
+      pet_type: :cat,
+      breed: "British Shorthair",
+      price: 500
+    },
+    {
+      name: "Sir Lancelot",
+      pet_type: :dog,
+      breed: "Pomsky",
+      price: 1000,
+    },
+    {
+      name: "Arthur",
+      pet_type: :dog,
+      breed: "Husky",
+      price: 900,
+    },
+    {
+      name: "Tristan",
+      pet_type: :dog,
+      breed: "Basset Hound",
+      price: 800,
+    },
+    {
+      name: "Merlin",
+      pet_type: :cat,
+      breed: "Egyptian Mau",
+      price: 1500,
+    }
+  ],
+  admin: {
+    total_cash: 1000,
+    pets_sold: 0,
+  },
+  name: "Camelot of Pets"
+}
+
 
 
 def pet_shop_name(pet_shop)
@@ -97,42 +168,28 @@ end
 
 
 
-# def sell_pet_to_customer(pet_shop_hash, pets_array, customers_array)
-#   if find_pet_by_name(pet_shop_hash, pets_array) != nil
-#
-#   add_pet_to_customer(customers_array, pets_array)
-#   return customer_pet_count(customers_array)
-#
-#   increase_pets_sold(pet_shop_hash, 1)
-#   return pets_sold(pet_shop_hash)
-#
-#   remove_customer_cash(customers_array, 900)
-#   return customer_cash(customers_array)
-#
-#   add_or_remove_cash(pet_shop_hash, 900)
-#   return total_cash(pet_shop_hash)
-#   end
-# end
-
-
 def sell_pet_to_customer(pet_shop_hash, pets_array, customers_array)
 
+    p find_pet_by_name(pet_shop_hash, pets_array)
   if find_pet_by_name(pet_shop_hash, pets_array) != nil
 
-    add_pet_to_customer(customers_array, pets_array)
-    customer_pet_count(customers_array)
+    p add_pet_to_customer(customers_array, pets_array)
+    p customer_pet_count(customers_array)
 
     increase_pets_sold(pet_shop_hash, 1)
-    pets_sold(pet_shop_hash)
+    p pets_sold(pet_shop_hash)
 
     remove_customer_cash(customers_array, 900)
-    customer_cash(customers_array)
+    p customer_cash(customers_array)
 
     add_or_remove_cash(pet_shop_hash, 900)
-    total_cash(pet_shop_hash)
+    p total_cash(pet_shop_hash)
+  else
+    p customer_pet_count(customers_array)
+    p pets_sold(pet_shop_hash)
+    p customer_cash(customers_array)
+    p total_cash(pet_shop_hash)
   end
-  return customer_pet_count(customers_array)
-  return pets_sold(pet_shop_hash)
-  return customer_cash(customers_array)
-  return total_cash(pet_shop_hash)
 end
+
+sell_pet_to_customer(@pet_shop, "Arthur", @customers[0])
