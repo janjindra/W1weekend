@@ -1,10 +1,8 @@
 
 
 def pet_shop_name(pet_shop)
-  for pet in pet_shop
     return pet_shop[:name]
   end
-end
 
 def total_cash(pet_shop_hash)
 return pet_shop_hash[:admin][:total_cash]
@@ -18,8 +16,8 @@ def pets_sold(pet_shop_hash)
 return pet_shop_hash[:admin][:pets_sold]
 end
 
-def increase_pets_sold(pet_shop, amount)
-  return pet_shop[:admin][:pets_sold] += amount
+def increase_pets_sold(pet_shop, number)
+  return pet_shop[:admin][:pets_sold] += number
 end
 
 def stock_count(pet_shop)
@@ -57,7 +55,7 @@ end
 
 def add_pet_to_stock(pet_shop, new_pet)
   pet_shop[:pets].push(new_pet)
-  return pet_shop[:pets].length
+  #return pet_shop[:pets].length
 end
 
 
@@ -97,25 +95,26 @@ end
 
 
 
+
 def sell_pet_to_customer(pet_shop_hash, pets_array, customers_array)
 
 if (pets_array != nil) && (customer_can_afford_pet(customers_array, pets_array) == true)
 
     add_pet_to_customer(customers_array, pets_array)
-    return customer_pet_count(customers_array)
+    #return customer_pet_count(customers_array)
 
     increase_pets_sold(pet_shop_hash, 1)
-    return pets_sold(pet_shop_hash)
+    #return pets_sold(pet_shop_hash)
 
-    remove_customer_cash(customers_array, 900)
-    return customer_cash(customers_array)
+    remove_customer_cash(customers_array, pets_array[:price])
+    #return customer_cash(customers_array)
 
-    add_or_remove_cash(pet_shop_hash, 900)
-    return total_cash(pet_shop_hash)
+    add_or_remove_cash(pet_shop_hash, pets_array[:price])
+    #return total_cash(pet_shop_hash)
 
   end
-  return customer_pet_count(customers_array)
-  return pets_sold(pet_shop_hash)
-  return customer_cash(customers_array)
-  return total_cash(pet_shop_hash)
+  # return customer_pet_count(customers_array)
+  # return pets_sold(pet_shop_hash)
+  # return customer_cash(customers_array)
+  # return total_cash(pet_shop_hash)
 end
